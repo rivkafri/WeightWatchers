@@ -1,0 +1,30 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "tami",
+            "lastName": "chen",
+            "address": {
+                "city": "jerusalem",
+                "street": "shamgar",
+                "number": 4
+            },
+            "phone": "123-456-7890",
+            "email": "t@gmail.com",
+            "height": 1.60,
+            "weight": {
+                "start": 73,
+                "meetings": [
+                    {
+                        "date": "2015-12-01T00:00:00Z",
+                        "weight": 71
+                    },
+                    {
+                        "date": "2016-01-01T00:00:00Z",
+                        "weight": 72
+                    }
+                ]
+            }
+        }
+    ]
+}
