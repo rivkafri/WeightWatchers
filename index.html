@@ -5,12 +5,17 @@
     <style>
         .usersTable {
             border: 1px black solid;
-            padding: 1%;
+            padding: 2%;
+        }
+
+        .th {
+            padding: 10px;
         }
     </style>
 </head>
-<!-- method="POST" action="http://localhost:3000/users" -->
-<!-- <form id="form" class="form">
+
+<body>
+    <!-- <form id="form" class="form">
     <label>enter first_name</label><input type="text" name="first_name" id="first_name" required><br />
     <label>enter last_name</label><input type="text" name=" last_name" id=" last_name" required><br />
     <label>enter address</label><br />
@@ -25,23 +30,31 @@
     <button type="button" id="addbtn">add</button>
     <button type="button" id="updatebtn">update</button>
 </form> -->
+    <h1>manager</h1>
+    <table class="usersTable">
+        <tr>
+            <th class="th">Name</th>
+            <th class="th">BMI</th>
+        </tr>
+    </table>
+    <br />
 
-<h1>manager</h1>
-<table class="usersTable">
-    <tr>
-        <th>Name</th>
-        <th>BMI</th>
-    </tr>
-</table>
-<br />
-<!-- <button type="button" id="list">users</button> -->
-<div id="userList" class="userList"></div>
-<label>enter for search</label><input type="text" id="inputSearch" name="inputSearch"><br />
-<!-- איך עושים תחיפושים? הכל רדיו? -->
-<button type="button" id="search">search</button><br />
-<a href="./user.html">user</a>
-<script src="./src/index.js"></script>
+    <div id="userList" class="userList"></div>
+    <label>enter for search</label><input type="text" id="inputSearch" name="inputSearch"><br />
+    <label>By Weight</label><input type="radio" name="byWeight" id="byWeight"><br />
+    <div id="weightInputs"></div>
+    <label>By Process</label><input type="radio" name="byProcess" id="byProcess"><br />
+    <label>By BMI</label><input type="radio" name="byBMI" id="byBMI"><br />
+    <div id="bmiInputs"></div>
+    <label>By City</label><input type="radio" name="byCity" id="byCity"><br />
+    <div id="cityInput"></div><br />
+    <button type="button" id="search">search</button>
+    <button type="reset" id="reset">reset</button>
+
+    <button type="button" id="newMeeting">new meeting</button><br />
+    <a href="./login.html">login</a>
+    <script src="./src/index.js"></script>
+
 </body>
-<!-- מה קורה לגבי ההרשאה -->
 
 </html>
