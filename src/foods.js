@@ -21,9 +21,8 @@ showDetails = (p) => {
 }
 
 const creatTable = () => {
-    // container.innerHTML = "";
+    container.innerHTML = "";
     console.log(array);
-    //let table = '';
     array.forEach((product) => {
         const div = document.createElement('div');
         const h2 = document.createElement('h2');
