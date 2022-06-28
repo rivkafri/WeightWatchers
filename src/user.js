@@ -106,3 +106,9 @@ form.onsubmit = (e) => {
     // localStorage.setItem("currentUser", JSON.stringify(data));
 
 }
+
+const diary=document.querySelector('#diary');
+diary.onclick=(e)=>{
+    e.preventDefault();
+    window.location.href = './diary.html?id=' + `${userURL}`;
+}
