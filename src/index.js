@@ -212,3 +212,24 @@ newMeeting.onclick = (e) => {
     e.preventDefault();
 
 }
+
+//
+const SearchFoods = document.querySelector('#SearchFoods');
+const q = document.querySelector('#q');
+
+SearchFoods.onsubmit = (e) => {
+    e.preventDefault();
+    const options = {
+        method: 'GET',
+        headers: { 'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', 'X-RapidAPI-Host': 'chomp.p.rapidapi.com' }
+    };
+
+    fetch(`https://chomp.p.rapidapi.com/request.php?ingredient=${q.value}`, options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+
+
+    // https://data.gov.il/api/3/action/datastore_search?resource_id=c3cb0630-0650-46c1-a068-82d575c094b2&limit=5
+
+}
