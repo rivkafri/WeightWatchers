@@ -28,12 +28,12 @@ const createUser = (u) => {
     StartBmi = document.createElement('h4');
     CurrentBmi = document.createElement('h4');
     WeightMeetings = document.createElement('h4');
-    FirstName.innerHTML = "FirstName: " + u.firstName;
-    LastName.innerHTML = "LastName: " + u.lastName;
-    Address.innerHTML = "Address: " + u.address.street + " " + u.address.number + " " + u.address.city;
-    Phone.innerHTML = "Phone: " + u.phone;
-    Email.innerHTML = "Email: " + u.email;
-    Height.innerHTML = "Height: " + u.height;
+    FirstName.innerHTML = u.firstName;
+    LastName.innerHTML = u.lastName;
+    Address.innerHTML = u.address.street + " " + u.address.number + " " + u.address.city;
+    Phone.innerHTML = u.phone;
+    Email.innerHTML = u.email;
+    Height.innerHTML = u.height;
     WeightStart.innerHTML = "Start Weight: " + u.weight.start;
     StartBmi.innerHTML = "Start BMI: " + u.weight.start / (u.height * u.height);
     CurrentBmi.innerHTML = "CurrentBmi: " + u.weight.meetings[u.weight.meetings.length - 1].weight / (u.height * u.height);
@@ -75,4 +75,34 @@ Request.onload = () => {
             }
         })
     }
+}
+
+const Edit = document.querySelector('#Edit');
+Edit.onclick = (e) => {
+    e.preventDefault();
+    FirstName.setAttribute('contenteditable', 'true');
+    LastName.setAttribute('contenteditable', 'true');
+    Address.setAttribute('contenteditable', 'true');
+    Phone.setAttribute('contenteditable', 'true');
+    Email.setAttribute('contenteditable', 'true');
+    Height.setAttribute('contenteditable', 'true');
+    FirstName.style.color = 'gray';
+    LastName.style.color = 'gray';
+    Address.style.color = 'gray';
+    Phone.style.color = 'gray';
+    Email.style.color = 'gray';
+    Height.style.color = 'gray';
+}
+const form = document.querySelector('#form');
+form.onsubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    // const formData = new FormData(e.target);
+    // const data = Object.fromEntries([...formData.entries()]);
+    // let users = localStorage.getItem('users');
+    // let usersArray = JSON.parse(users) || [];
+    // usersArray.push(data);
+    // localStorage.setItem('users', JSON.stringify(usersArray));
+    // localStorage.setItem("currentUser", JSON.stringify(data));
+
 }
