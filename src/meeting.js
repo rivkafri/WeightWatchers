@@ -48,7 +48,7 @@ saveInJson = (obj) => {
     arrMeetings = [];
 }
 
-form.onsubmit = (e) => {
-    e.preventDefault();
-    obj = { date: , weight: , comments: , notVisit:  }
-}
+// form.onsubmit = (e) => {
+//     e.preventDefault();
+//     obj = { date: , weight: , comments: , notVisit:  }
+// }

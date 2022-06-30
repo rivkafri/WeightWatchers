@@ -29,7 +29,7 @@ const creatTable = () => {
     container.innerHTML = "";
     console.log(array);
     if (array == [])
-        alert("not exist!");
+        alert('not exist!');
     else {
         array.forEach((product) => {
             const div = document.createElement('div');
@@ -93,7 +93,7 @@ SearchFoods.onsubmit = (e) => {
     } else {
         array = "";
         container.innerHTML = "";
-        alert("enter again!");
+        alert('enter again!');
     }
 }
 
