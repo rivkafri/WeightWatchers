@@ -2,6 +2,32 @@ const form = document.querySelector('#form');
 let obj = {};
 let arrMeetings = [];
 
+let date = "";
+let weight = "";
+let comment = "";
+let visit = "";
+
+let usersMeeting = "";
+creatTableMeeting = (user) => {
+    let table = '';
+    table += `
+                <tr>
+                    <th><input type="text" value=${user.firstName + user.lastName}></th>
+                    <th><input id="date" type="Date" value=${new Date().toISOString().split("T")[0]}></th>
+                    <th><input id="weight" type="text" placeholder="write a weight"></th>
+                    <th><input id="comment" type="text" placeholder="write a comments"/></th>
+                    <th><input id="visit" type="checkbox"/></th>
+                </tr>`
+    usersMeeting = document.querySelector('.usersMeeting');
+    usersMeeting.innerHTML += table;
+    // date = document.getElementById('date');
+    // weight = document.getElementById('weight');
+    // comment = document.getElementById('comment');
+    // visit = document.getElementById('visit');
+    // obj = { date: date.value, weight: weight.value, comments: comment.value, visit: visit.checked };
+    // console.log(obj);
+}
+
 const fetchGet = () => {
     fetch('http://localhost:3000/users')
         .then(response => {
@@ -16,20 +42,6 @@ const fetchGet = () => {
 };
 fetchGet();
 
-let usersMeeting = "";
-creatTableMeeting = (user) => {
-    let table = '';
-    table += `
-                <tr>
-                    <th><input  type="text" value=${user.firstName + user.lastName}></th>
-                    <th><input  type="text" value=${user.weight.meetings[user.weight.meetings.length - 1].weight}></th>
-                    <th><input  type="Date"  value=${new Date().toISOString().split("T")[0]}></th>
-                    <th><input  type="text" placeholder="write a comments"/></th>
-                    <th><input type="checkbox"/></th>
-                </tr>`
-    usersMeeting = document.querySelector('.usersMeeting');
-    usersMeeting.innerHTML += table;
-}
 
 saveInJson = (obj) => {
     console.log(obj);
@@ -48,7 +60,8 @@ saveInJson = (obj) => {
     arrMeetings = [];
 }
 
+//when save the changes
 form.onsubmit = (e) => {
     e.preventDefault();
-    obj = { date: , weight: , comments: , notVisit:  }
+
 }

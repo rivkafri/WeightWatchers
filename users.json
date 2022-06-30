@@ -1,128 +1,142 @@
 {
-    "manager": {
-        "name": "Jon",
-        "email": "s@gmail.com",
-        "phone": "0543544909"
-    },
-    "users": [
+  "manager": {
+    "name": "Jon",
+    "email": "s@gmail.com",
+    "phone": "0543544909"
+  },
+  "users": [
+    {
+      "id": 1,
+      "firstName": "rivki",
+      "lastName": "chen",
+      "address": {
+        "city": "jerusalem",
+        "street": "shamgar",
+        "number": 4
+      },
+      "phone": "0533145417",
+      "email": "t@gmail.com",
+      "height": "1.6",
+      "weight": {
+        "start": 50,
+        "meetings": [
+          {
+            "date": "01-02-2022",
+            "weight": 51
+          },
+          {
+            "date": "01-03-2022",
+            "weight": 55
+          }
+        ]
+      },
+      "dairy": [
         {
-            "id": 1,
-            "firstName": "rivki",
-            "lastName": "chen",
-            "address": {
-                "city": "jerusalem",
-                "street": "shamgar",
-                "number": 4
-            },
-            "phone": "0533145417",
-            "email": "t@gmail.com",
-            "height": "1.6",
-            "weight": {
-                "start": 50,
-                "meetings": [
-                    {
-                        "date": "01-02-2022",
-                        "weight": 51
-                    },
-                    {
-                        "date": "01-03-2022",
-                        "weight": 55
-                    }
-                ]
-            },
-            "dairy": [
-                {
-                    "date": "01-03-2022",
-                    "summery": [
-                        "ice cream"
-                    ]
-                },
-                {
-                    "date": "2022-06-29",
-                    "summery": [
-                        "bread"
-                    ]
-                },
-                {
-                    "date": "2022-06-29",
-                    "summery": [
-                        "cheese\ntomatoes",
-                        "chicken"
-                    ]
-                }
-            ],
-            "address.city": "jerusalem",
-            "address.street": "shamgar",
-            "address.number": "4"
+          "date": "01-03-2022",
+          "summery": [
+            "ice cream"
+          ]
         },
         {
-            "id": 2,
-            "firstName": "tami",
-            "lastName": "levi",
-            "address": {
-                "city": "jerusalem",
-                "street": "shamgar",
-                "number": 5
-            },
-            "phone": "0533145420",
-            "email": "tl@gmail.com",
-            "height": 1.6,
-            "weight": {
-                "start": 80,
-                "meetings": [
-                    {
-                        "date": "01-02-2022",
-                        "weight": 71
-                    },
-                    {
-                        "date": "01-03-2022",
-                        "weight": 79
-                    }
-                ]
-            },
-            "dairy": [
-                {
-                    "date": "01-03-2022",
-                    "summery": [
-                        "tomato",
-                        "ice cream"
-                    ]
-                }
-            ]
+          "date": "2022-06-29",
+          "summery": [
+            "bread"
+          ]
         },
         {
-            "id": 3,
-            "firstName": "shani",
-            "lastName": "cohen",
-            "address": {
-                "city": "bnei brak",
-                "street": "rabi akiva",
-                "number": 90
-            },
-            "phone": "0533140988",
-            "email": "scohen@gmail.com",
-            "height": 1.7,
-            "weight": {
-                "start": 75,
-                "meetings": [
-                    {
-                        "date": "01-01-2022",
-                        "weight": 79
-                    },
-                    {
-                        "date": "01-02-2022",
-                        "weight": 70
-                    }
-                ]
-            },
-            "dairy": [
-                {
-                    "date": "01-03-2022",
-                    "summery": [
-                        "bread"
-                    ]
-                }
-            ]
+          "date": "2022-06-29",
+          "summery": [
+            "cheese\ntomatoes",
+            "chicken"
+          ]
+        },
+        {
+          "date": "2022-06-30",
+          "summery": [
+            "bread ",
+            "chicken"
+          ]
+        },
+        {
+          "date": "2022-06-30",
+          "summery": [
+            "tomato, paper\n\n",
+            "ice cream"
+          ]
         }
-    ]
+      ],
+      "address.city": "jerusalem",
+      "address.street": "shamgar",
+      "address.number": "4"
+    },
+    {
+      "id": 2,
+      "firstName": "tami",
+      "lastName": "levi",
+      "address": {
+        "city": "jerusalem",
+        "street": "shamgar",
+        "number": 5
+      },
+      "phone": "0533145420",
+      "email": "tl@gmail.com",
+      "height": 1.6,
+      "weight": {
+        "start": 80,
+        "meetings": [
+          {
+            "date": "01-02-2022",
+            "weight": 71
+          },
+          {
+            "date": "01-03-2022",
+            "weight": 79
+          }
+        ]
+      },
+      "dairy": [
+        {
+          "date": "01-03-2022",
+          "summery": [
+            "tomato",
+            "ice cream"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "firstName": "shani",
+      "lastName": "cohen",
+      "address": {
+        "city": "bnei brak",
+        "street": "rabi akiva",
+        "number": 90
+      },
+      "phone": "0533140988",
+      "email": "scohen@gmail.com",
+      "height": 1.7,
+      "weight": {
+        "start": 75,
+        "meetings": [
+          {
+            "date": "01-01-2022",
+            "weight": 79
+          },
+          {
+            "date": "01-02-2022",
+            "weight": 70
+          }
+        ]
+      },
+      "dairy": [
+        {
+          "date": "01-03-2022",
+          "summery": [
+            "bread"
+          ]
+        }
+      ]
+    }
+  ]
 }
