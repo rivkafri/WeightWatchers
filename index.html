@@ -16,31 +16,34 @@
 
 <body>
 
-    <!-- <form id="form" class="form">
-        <label>enter first_name</label><input type="text" name="first_name" id="first_name" required><br />
-        <label>enter last_name</label><input type="text" name=" last_name" id=" last_name" required><br />
-        <label>enter address</label><br />
-        <label>enter city</label><input type="text" name="city" id="city" required><br />
-        <label>enter street</label><input type="text" name="street" id="street" required><br />
-        <label>enter BuildingNumber</label><input type="number" name="BuildingNumber" id="BuildingNumber"
-            required><br />
-        <label>enter phone</label><input type="text" name="phone" id="phone" required><br />
-        <label>enter email</label><input type="text" name="email" id="email" required><br />
-        <label>enter height</label><input type="text" name="height" id="height" required><br />
-        <label>enter start_weight</label><input type="text" name="weight" id="weight" required><br />
-        <button type="submit">save</button>
-        <button type="button" id="addbtn">add</button>
-        <button type="button" id="updatebtn">update</button>
-    </form> -->
-
     <h1>manager</h1>
     <table class="usersTable">
         <tr>
             <th class="th">Name</th>
             <th class="th">BMI</th>
+            <th class="th">TO DELETE</th>
         </tr>
     </table>
     <br />
+
+    <form id="form" class="form">
+        <h3>add new user</h3>
+        <label>enter first_name</label><input type="text" name="firstName" id="firstName" minlength="2" required><br />
+        <label>enter last_name</label><input type="text" name="lastName" id="lastName" minlength="2" required><br />
+        <label>enter address</label><br />
+        <label>enter city</label><input type="text" name="city" id="city" minlength="2" required><br />
+        <label>enter street</label><input type="text" name="street" id="street" minlength="2" required><br />
+        <label>enter BuildingNumber</label><input type="number" name="BuildingNumber" min="1" id="BuildingNumber"
+            required><br />
+        <label>enter phone</label><input type="text" name="phone" id="phone" min="9" max="10" required><br />
+        <label>enter email</label><input type="email" name="email" id="email" required ><br />
+        <label>enter height</label><input type="text" name="height" id="height" required><br />
+        <label>enter start_weight</label><input type="text" name="weight" id="weight" required><br />
+        <button type="submit">add</button>
+        <!-- <button type="button" id="addbtn">add</button> -->
+        <!-- <button type="button" id="updatebtn">update</button> -->
+    </form>
+    <br>
 
     <div id="userList" class="userList"></div>
     <label>enter for search</label><input type="text" id="inputSearch" name="inputSearch"><br />
