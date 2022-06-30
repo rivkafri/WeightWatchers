@@ -13,12 +13,9 @@ login.onclick = (e) => {
         } else {
             users = JSON.parse(Request.responseText);
             console.log(users);
-            //let flag = 0;
+            debugger;
             if (inputToLogin.value != "") {
-                // if (inputToLogin.value === users.manager.email || inputToLogin.value === users.manager.phone) {
-                //     window.location.href = './index.html';
-                //     flag = 1;
-                const user = users.find(user => user.email === inputToLogin.value || user.phone === inputToLogin.value);
+                const user = users.users.find(user => user.email === inputToLogin.value || user.phone === inputToLogin.value);
                 const manager = users.manager.email === inputToLogin.value || users.manager.phone === inputToLogin.value;
                 if (user)
                     window.location.href = './user.html?id=' + `${user.id}`;
@@ -28,22 +25,9 @@ login.onclick = (e) => {
                     alert('not found try again');
             }
             else {
-                // users.users.forEach(u => {
-                //     if (inputToLogin.value === u.email || inputToLogin.value === u.phone) {
-                //         window.location.href = './user.html?id=' + `${u.id}`;
-                //         flag = 1;
-                //     }
-                // });
                 alert('you not enter anything');
             }
-            // if (flag === 0) {
-            //     alert("not found try again");
-            // }
-        }
-        //         else {
-        //         alert("you not enter anything");
-        //     }
-        // }
 
+        }
     }
 }

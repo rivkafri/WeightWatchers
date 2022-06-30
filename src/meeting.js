@@ -60,8 +60,3 @@ saveInJson = (obj) => {
     arrMeetings = [];
 }
 
-//when save the changes
-form.onsubmit = (e) => {
-    e.preventDefault();
-
-}

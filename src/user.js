@@ -56,7 +56,12 @@ const createUser = (u) => {
     Height.innerHTML = u.height;
     WeightStart.innerHTML = "Start Weight: " + u.weight.start;
     StartBmi.innerHTML = "Start BMI: " + u.weight.start / (u.height * u.height);
-    CurrentBmi.innerHTML = "CurrentBmi: " + u.weight.meetings[u.weight.meetings.length - 1].weight / (u.height ** 2);
+    if(u.weight.meetings.length===0){
+        CurrentBmi.innerHTML = "CurrentBmi: "+u.weight.start / (u.height * u.height);
+    }
+    else{
+        CurrentBmi.innerHTML = "CurrentBmi: " + u.weight.meetings[u.weight.meetings.length - 1].weight / (u.height ** 2);
+    }   
     WeightMeetings.innerHTML = "Meetings: ";
     u.weight.meetings.forEach(m => {
         let table = '';
