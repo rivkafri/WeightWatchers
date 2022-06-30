@@ -7,7 +7,7 @@
     "users": [
         {
             "id": 1,
-            "firstName": "tami",
+            "firstName": "rivki",
             "lastName": "chen",
             "address": {
                 "city": "jerusalem",
@@ -16,7 +16,7 @@
             },
             "phone": "0533145417",
             "email": "t@gmail.com",
-            "height": 1.60,
+            "height": "1.6",
             "weight": {
                 "start": 50,
                 "meetings": [
@@ -29,7 +29,31 @@
                         "weight": 55
                     }
                 ]
-            }
+            },
+            "dairy": [
+                {
+                    "date": "01-03-2022",
+                    "summery": [
+                        "ice cream"
+                    ]
+                },
+                {
+                    "date": "2022-06-29",
+                    "summery": [
+                        "bread"
+                    ]
+                },
+                {
+                    "date": "2022-06-29",
+                    "summery": [
+                        "cheese\ntomatoes",
+                        "chicken"
+                    ]
+                }
+            ],
+            "address.city": "jerusalem",
+            "address.street": "shamgar",
+            "address.number": "4"
         },
         {
             "id": 2,
@@ -42,7 +66,7 @@
             },
             "phone": "0533145420",
             "email": "tl@gmail.com",
-            "height": 1.60,
+            "height": 1.6,
             "weight": {
                 "start": 80,
                 "meetings": [
@@ -55,7 +79,16 @@
                         "weight": 79
                     }
                 ]
-            }
+            },
+            "dairy": [
+                {
+                    "date": "01-03-2022",
+                    "summery": [
+                        "tomato",
+                        "ice cream"
+                    ]
+                }
+            ]
         },
         {
             "id": 3,
@@ -68,7 +101,7 @@
             },
             "phone": "0533140988",
             "email": "scohen@gmail.com",
-            "height": 1.70,
+            "height": 1.7,
             "weight": {
                 "start": 75,
                 "meetings": [
@@ -81,7 +114,15 @@
                         "weight": 70
                     }
                 ]
-            }
+            },
+            "dairy": [
+                {
+                    "date": "01-03-2022",
+                    "summery": [
+                        "bread"
+                    ]
+                }
+            ]
         }
     ]
 }

@@ -17,12 +17,12 @@ setUsersList = () => {
             usersList.forEach(user => {
                 printUser(user);
             });
-
         }
     }
     return usersList;
 }
 
+//////////////search/////////////
 //byWeight
 byWeightFunc = (arr, min, max) => {
     console.log(arr);
@@ -52,7 +52,7 @@ byCityFunc = (arr, city) => {
     return ans;
 }
 
-//search
+//searchAll
 searchFunc = (arr, inputToSearch) => {
     const ans = arr.filter(user => user.id === inputToSearch ||
         user.firstName === inputToSearch || user.lastName === inputToSearch ||
@@ -62,16 +62,15 @@ searchFunc = (arr, inputToSearch) => {
     return ans;
 }
 
-
 let container = "";
 
 //print one user
 const printUser = (user) => {
     console.log(user);
     //check the BMI
-    let bmi = user.weight.meetings[user.weight.meetings.length - 1].weight / (user.height * user.height);
+    let bmi = user.weight.meetings[user.weight.meetings.length - 1].weight / (user.height ** 2);
     let color = "green";
-    if (bmi > user.weight.meetings[user.weight.meetings.length - 2].weight / (user.height * user.height))
+    if (bmi > user.weight.meetings[user.weight.meetings.length - 2].weight / (user.height ** 2))
         color = "red";
     let table = '';
     table += `
@@ -82,7 +81,6 @@ const printUser = (user) => {
     container = document.querySelector('.usersTable');
     container.innerHTML += table;
 }
-
 
 //send to print
 const sendToPrint = (arr) => {
@@ -155,7 +153,6 @@ byBMI.onchange = (e) => {
     bmiInputs.append(BMIDiv);
 }
 
-
 const cityInput = document.querySelector('#cityInput');
 let city = null;
 byCity.onchange = (e) => {
@@ -205,31 +202,8 @@ reset.onclick = (e) => {
     cityInput.innerHTML = "";
     sendToPrint(list);
 }
-
-//new meeting
 const newMeeting = document.querySelector('#newMeeting');
 newMeeting.onclick = (e) => {
     e.preventDefault();
-
-}
-
-//
-const SearchFoods = document.querySelector('#SearchFoods');
-const q = document.querySelector('#q');
-
-SearchFoods.onsubmit = (e) => {
-    e.preventDefault();
-    const options = {
-        method: 'GET',
-        headers: { 'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', 'X-RapidAPI-Host': 'chomp.p.rapidapi.com' }
-    };
-
-    fetch(`https://chomp.p.rapidapi.com/request.php?ingredient=${q.value}`, options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-
-
-    // https://data.gov.il/api/3/action/datastore_search?resource_id=c3cb0630-0650-46c1-a068-82d575c094b2&limit=5
-
+    window.location.href = 'meeting.html';
 }
