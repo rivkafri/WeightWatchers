@@ -120,6 +120,7 @@ Edit.onclick = (e) => {
     Email.style.color = 'gray';
     Height.style.color = 'gray';
 }
+
 const form = document.querySelector('#form');
 form.onsubmit = (e) => {
     e.preventDefault();
