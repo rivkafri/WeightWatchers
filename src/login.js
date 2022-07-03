@@ -13,7 +13,6 @@ login.onclick = (e) => {
         } else {
             users = JSON.parse(Request.responseText);
             console.log(users);
-            debugger;
             if (inputToLogin.value != "") {
                 const user = users.users.find(user => user.email === inputToLogin.value || user.phone === inputToLogin.value);
                 const manager = users.manager.email === inputToLogin.value || users.manager.phone === inputToLogin.value;
