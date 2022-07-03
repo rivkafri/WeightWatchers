@@ -10,13 +10,17 @@
         .h1 {
             margin-bottom: 0;
         }
+
+        .th {
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
     <h1 class="h1">user details</h1>
     <form id="form">
-        <div id="userContainer" class="userContainer"></div>
+        <table class="userContainer"></table>
         <table class="userTable">
             <tr>
                 <th>Date</th>
@@ -26,8 +30,7 @@
         <button type="button" id="Edit" name="Edit">Edit</button>
         <button type="submit" id="Save" name="Save">Save</button>
     </form>
-    <button id="diary">to the diary</button>
-    <!-- <a href="./diary.html">to the diary</a> -->
+    <br /><button id="diary">to the diary</button>
     <script src="./src/user.js"></script>
 </body>
 

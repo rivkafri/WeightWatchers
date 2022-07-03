@@ -33,7 +33,7 @@ byWeightFunc = (arr, min, max) => {
 
 //byProcess
 byProcessFunc = (arr) => {
-    console.log("byProcessFunc");
+    console.log('byProcessFunc');
     const ans = arr.filter(f => f.weight.start > (f.weight.meetings[f.weight.meetings.length - 1].weight));
     console.log(ans);
     return ans;
@@ -62,7 +62,7 @@ searchFunc = (arr, inputToSearch) => {
     return ans;
 }
 
-let container = "";
+let container = '';
 
 //print one user
 const printUser = (user) => {
@@ -70,7 +70,6 @@ const printUser = (user) => {
     //check the BMI
     let bmi = user.weight.start / (user.height ** 2);
     let color = "green";
-    // if (bmi > user.weight.start / (user.height ** 2))
     if (bmi > 25)
         color = "red";
     let table = '';
@@ -83,7 +82,7 @@ const printUser = (user) => {
     container = document.querySelector('.usersTable');
     container.innerHTML += table;
 }
-const deleteUser=(id)=>{
+const deleteUser = (id) => {
     console.log(id);
     fetch(`http://localhost:3000/users/${id}`, { method: 'DELETE' })
         .then(() => console.log('Delete successful'));
@@ -196,7 +195,7 @@ search.onclick = (e) => {
     if (inputToSearch.value != "")
         sendToPrint(searchFunc(list, inputToSearch.value));
 }
-//
+//reset
 const reset = document.querySelector('#reset');
 reset.onclick = (e) => {
     e.preventDefault();
@@ -214,7 +213,7 @@ newMeeting.onclick = (e) => {
     e.preventDefault();
     window.location.href = 'meeting.html';
 }
-// post user
+// creat new user
 let obj = {};
 const form = document.querySelector('#form');
 form.onsubmit = (e) => {
@@ -226,7 +225,7 @@ form.onsubmit = (e) => {
             city: data.city, street: data.street,
             number: data.BuildingNumber
         }, phone: data.phone, email: data.email, height: data.height,
-        weight: { start: data.weight, meetings: [] }
+        weight: { start: data.weight, meetings: [] }, diary: []
     };
     console.log(obj);
     fetch(`http://localhost:3000/users/`, {

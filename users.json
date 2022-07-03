@@ -1,23 +1,114 @@
 {
-  "manager": {
-    "name": "Jon",
-    "email": "s@gmail.com",
-    "phone": "0543544909"
-  },
-  "users": [
-    {
-
-          }
-        ]
-      },
-      "dairy": [
-
-          "date": "01-03-2022",
-          "summery": [
-            "bread"
-          ]
+    "manager": {
+        "name": "Jon",
+        "email": "s@gmail.com",
+        "phone": "0543544909"
+    },
+    "users": [
+        {
+            "id": 1,
+            "firstName": "tami",
+            "lastName": "levi",
+            "address": {
+                "city": "jerusalem",
+                "street": "shamgar",
+                "number": "5"
+            },
+            "phone": "0533145420",
+            "email": "tl@gmail.com",
+            "height": "1.6",
+            "weight": {
+                "meetings": [
+                    {
+                        "date": "01-02-2022",
+                        "weight": 71
+                    },
+                    {
+                        "date": "01-03-2022",
+                        "weight": 79
+                    },
+                    {
+                        "date": "2022-07-03",
+                        "weight": "50",
+                        "comments": "good! you work perfect!",
+                        "visit": true
+                    }
+                ]
+            },
+            "diary": [
+                {
+                    "date": "01-03-2022",
+                    "summery": [
+                        "tomato",
+                        "ice cream"
+                    ]
+                },
+                {
+                    "date": "2022-07-02",
+                    "summery": [
+                        "bread\npaper\n"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "firstName": "shani",
+            "lastName": "cohen",
+            "address": {
+                "city": "bnei brak",
+                "street": "rabi akiva",
+                "number": 90
+            },
+            "phone": "0556780532",
+            "email": "scohen@gmail.com",
+            "height": "1.7",
+            "weight": {
+                "start": 100,
+                "meetings": [
+                    {
+                        "date": "01-01-2022",
+                        "weight": 79
+                    },
+                    {
+                        "date": "01-02-2022",
+                        "weight": 70
+                    }
+                ]
+            },
+            "diary": [
+                {
+                    "date": "01-03-2022",
+                    "summery": [
+                        "bread"
+                    ]
+                }
+            ]
+        },
+        {
+            "firstName": "lea",
+            "lastName": "frid",
+            "address": {
+                "city": "jerusalem",
+                "street": "hpisga",
+                "number": "8"
+            },
+            "phone": "0527683596",
+            "email": "lf@D0533149058",
+            "height": "1.70",
+            "weight": {
+                "start": "70",
+                "meetings": []
+            },
+            "diary": [
+                {
+                    "date": "2022-07-02",
+                    "summery": [
+                        "bread"
+                    ]
+                }
+            ],
+            "id": 3
         }
-
-    }
-  ]
+    ]
 }

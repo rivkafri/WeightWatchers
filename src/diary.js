@@ -1,27 +1,28 @@
 const searchURL = new URLSearchParams(location.search);
 const userURL = parseInt(searchURL.get('id'));
 console.log(userURL);
-let container="";
-let arrDairy=[];
+let container = "";
+let arrDiary = [];
 
 showDairy = (u) => {
     console.log(u);
     container.innerHTML = "";
-    arrDairy=u.dairy;
-    console.log(arrDairy);
-    u.dairy.forEach(day => {
-        let table = '';
-        table += `
-            <tr>
-            <th>${day.date}</th>
-            <th>${day.summery}</th>
-            </tr>`
+    arrDiary = u.diary;
+    console.log(arrDiary);
+    if (arrDiary.length > 0) {
+        u.diary.forEach(day => {
+            let table = '';
+            table += `
+                <tr>
+                <th>${day.date}</th>
+                <th>${day.summery}</th>
+                <th>${day.summery.length}</th>
+                </tr>`
             container = document.querySelector('.usersTable');
-        container.innerHTML += table;
-    })
+            container.innerHTML += table;
+        })
+    }
 }
-// day.summery.forEach(meal => {
-//     <th>${meal}</th>
 
 const fetchGet = () => {
     fetch('http://localhost:3000/users')
@@ -41,7 +42,7 @@ fetchGet();
 const summaryDay = document.querySelector('#summaryDay');
 const Meals = document.querySelector('#Meals');
 
-let dairy = [];
+let diary = [];
 let obj = {};
 let food = "";
 let addMeal = "";
@@ -52,25 +53,25 @@ let dateBtn = "";
 
 saveInJson = (obj) => {
     console.log(obj);
-    arrDairy.push(obj);
-    console.log(arrDairy);
+    arrDiary.push(obj);
+    console.log(arrDiary);
     fetch(`http://localhost:3000/users/${userURL}`, {
         method: `PATCH`,
-                   body: JSON.stringify({
-                "dairy": arrDairy,
-            }),
+        body: JSON.stringify({
+            "diary": arrDiary,
+        }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     }).then(response => console.log(response));
-    arrDairy=[];
+    arrDairy = [];
 }
 
-summaryDay.onclick = (e) => { 
+summaryDay.onclick = (e) => {
     e.preventDefault();
-    dateBtn = document.createElement("input");
+    dateBtn = document.createElement('input');
     dateBtn.type = "Date";
-    dateBtn.value = new Date().toISOString().split("T")[0];
+    dateBtn.value = new Date().toISOString().split('T')[0];
     addMeal = document.createElement('button');
     addMeal.innerHTML = "add meal";
     allFoods = document.createElement('div');
@@ -78,7 +79,7 @@ summaryDay.onclick = (e) => {
     addMeal.addEventListener("click", () => {
         food = document.createElement('textarea');
         food.addEventListener('change', () => {
-            dairy.push(food.value);
+            diary.push(food.value);
         });
         content.append(food);
         allFoods.append(content, save);
@@ -87,47 +88,9 @@ summaryDay.onclick = (e) => {
     save.innerHTML = "save";
     save.addEventListener("click", () => {
         Meals.innerHTML = "";
-        obj = { date: dateBtn.value, summery: dairy }
+        obj = { date: dateBtn.value, summery: diary }
         saveInJson(obj);
-        dairy = [];
+        diary = [];
     });
     Meals.append(addMeal, dateBtn, allFoods);
 }
-
-    // addMeal.onclick = () => {
-    //     food = document.createElement('textarea');
-    //     allFoods.append(food);
-    // }
-    // btMeals.append(addMeal);
-
-
-    
-    // fetch(`http://localhost:3000/users/${user.id}`, {
-    //         method: `PATCH`,
-    //         body: JSON.stringify({
-    //             "weight": user.weight,
-    //         }),
-    //         headers: { 'Content-type': `application/json; charset=UTF-8` },
-    //     }).then((response) => {
-    //         if (response.status === 200 && response.status !== undefined) {
-    //             alert(`the meeting was successfully added`)
-    //         }
-    //         else {
-    //             alert(response.message)
-    //         }
-    //     })
-
-
-
-    // fetch("http://localhost:3000/users", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //         title: "dairy",
-    //         body: obj,
-    //         userId: userURL
-    //     }),
-    //     headers: {
-    //         "Content-type": "application/json; charset=UTF-8"
-    //     }
-    // })
-    //     .then(response => response.json())
