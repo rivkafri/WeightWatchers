@@ -8,16 +8,30 @@ showDetails = (p) => {
     console.log(p);
     AllFoods.innerHTML = "";
     container.innerHTML = "";
-    let protein = '';
-    if (hebrew)
+    let protein = "";
+    let sodium = "";
+    let potassium="";
+    let carbohydrates=""
+    if (hebrew){
         protein = p.protein;
-    else
+        sodium=p.sodium;
+        potassium=p.potassium;
+        carbohydrates=p.carbohydrates;
+    }
+    else{
         protein = p.protein_g;
-    let table = '';
+        sodium=p.sodium_mg;
+        potassium=p.potassium_mg;
+        carbohydrates=p.carbohydrates_total_g;
+    }
+    let table = "";
     table += `
         <tr>
             <th><button type="submit" onclick="creatTable()">לחזרה לעמוד הקודם</button><th>
-            <th>protein: ${protein}</th>
+            <th>protein: ${protein}</th><br/>
+            <th>sodium: ${sodium}</th>
+            <th>potassium: ${potassium}</th>
+            <th>carbohydrates: ${carbohydrates}</th>
         </tr>`
     container = document.querySelector('#ProductsTable');
     container.innerHTML += table;
@@ -92,6 +106,6 @@ SearchFoods.onsubmit = (e) => {
     } else {
         array = [];
         container.innerHTML = "";
-        alert('enter again!');
+        alert("enter again!");
     }
 }
