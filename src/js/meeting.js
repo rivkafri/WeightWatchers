@@ -24,17 +24,18 @@ creatTableMeeting = (user) => {
 }
 
 const fetchGet = () => {
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:8000/users')
         .then(response => {
             return response.json();
         }).then(data => {
-            console.log(data);
-            data.forEach(user => {
+            console.log(data.users);
+            data.users.forEach(user => {
                 creatTableMeeting(user);
             });
         })
 };
 fetchGet();
+
 
 async function func(id) {
     console.log('func ' + id);
