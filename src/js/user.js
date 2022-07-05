@@ -2,7 +2,10 @@ const searchURL = new URLSearchParams(location.search);
 const userURL = parseInt(searchURL.get('id'));
 const form = document.querySelector('#form');
 let container = '';
+//container.id = 'container';
 let containerMeetings = '';
+let table = '';
+//table.classList.add('table');
 
 const printUser = (user) => {
     console.log(user);
@@ -13,7 +16,6 @@ const printUser = (user) => {
     else {
         CurrentBmi = user.weight.meetings[user.weight.meetings.length - 1].weight / (user.height ** 2);
     }
-    let table = '';
     table += `
             <tr><td><input id='fName' minlength='2' type='text' value='${user.firstName}' readonly required /></td></tr>
             <tr><td><input id='lName' minlength='2' type='text' value='${user.lastName}' readonly required/></td> </tr>
@@ -45,7 +47,7 @@ const printUser = (user) => {
 // xhr to bring the data from json file.
 let users;
 const Request = new XMLHttpRequest();
-Request.open('GET', 'users.json');
+Request.open('GET', '../../users.json');
 Request.send();
 Request.onload = () => {
     if (Request.status != 200) {
@@ -60,11 +62,22 @@ Request.onload = () => {
         })
     }
 }
-
+let arrDetails = [];
 const Edit = document.querySelector('#Edit');
 Edit.onclick = (e) => {
     e.preventDefault();
     console.log('Edit');
+    //for  
+    // // let arr=['fName'];
+    // const details = table;
+    // for (let i = 0; i <8; i++) {
+    //     // let child=document.getElementById(arr[i]);
+    //     debugger;
+    //     console.log(details)
+    // arrDetails[i] = details[i];
+    // details[i].removeAttribute('readonly');
+    // details[i].style.color = 'gray'
+
     const fName = document.getElementById('fName');
     fName.removeAttribute('readonly');
     fName.style.color = 'gray'
@@ -95,6 +108,9 @@ form.onsubmit = (e) => {
     e.preventDefault();
     console.log('Save');
     saveInJson();
+    detailsContainer = '';
+    details = '';
+    arrDetails = [];
 }
 
 saveInJson = () => {
@@ -103,10 +119,11 @@ saveInJson = () => {
         body: JSON.stringify({
             "firstName": fName.value,
             "lastName": lName.value,
+            "address": { city: city.value, street: street.value, number: number.value },
             "phone": phone.value,
             "email": email.value,
-            "height": height.value,
-            "address": { city: city.value, street: street.value, number: number.value }
+            "height": height.value
+
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -117,5 +134,5 @@ saveInJson = () => {
 const diary = document.querySelector('#diary');
 diary.onclick = (e) => {
     e.preventDefault();
-    window.location.href = './diary.html?id=' + `${userURL}`;
+    window.location.href = '../html/diary.html?id=' + `${userURL}`;
 }
