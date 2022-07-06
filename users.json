@@ -12,13 +12,13 @@
       "address": {
         "city": "jerusalem",
         "street": "shamgar",
-        "number": "5"
+        "number": 5
       },
       "phone": "0533145420",
       "email": "tl@gmail.com",
       "height": "1.6",
       "weight": {
-        "start": 70,
+        "start": "70",
         "meetings": [
           {
             "date": "01-02-2022",
@@ -71,7 +71,7 @@
       "email": "scohen@gmail.com",
       "height": "1.7",
       "weight": {
-        "start": 100,
+        "start": "100",
         "meetings": [
           {
             "date": "01-01-2022",
@@ -98,7 +98,7 @@
       "address": {
         "city": "bnei brak",
         "street": "hpisga",
-        "number": "8"
+        "number": 8
       },
       "phone": "0527683596",
       "email": "lf@D0533149058",
@@ -116,6 +116,60 @@
         }
       ],
       "id": 3
+    },
+    {
+      "id": 4,
+      "firstName": "shira",
+      "lastName": "fishman",
+      "address": {
+        "city": "jerusalem",
+        "street": "yosef",
+        "number": 80
+      },
+      "phone": "0556669988",
+      "email": "a@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
+    },
+    {
+      "id": 5,
+      "firstName": "elisheva",
+      "lastName": "fish",
+      "address": {
+        "city": "jerusalem",
+        "street": "yosef",
+        "number": 80
+      },
+      "phone": "0556669999",
+      "email": "yf@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
+    },
+    {
+      "id": 6,
+      "firstName": "elisheva",
+      "lastName": "zak",
+      "address": {
+        "city": "bnei brak",
+        "street": "yosef",
+        "number": 90
+      },
+      "phone": "0501119999",
+      "email": "ez@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
     }
   ]
 }

@@ -8,9 +8,6 @@ const port = 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.get('/', function (req, res) {
-//     res.send('Hello World!')
-// });
 app.use('/users', usersControllers);
 app.use(express.static('public'));
 

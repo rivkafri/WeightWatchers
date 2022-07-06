@@ -47,7 +47,7 @@ const printUser = (user) => {
 // xhr to bring the data from json file.
 let users;
 const Request = new XMLHttpRequest();
-Request.open('GET', '../../users.json');
+Request.open('GET', 'http://localhost:8000/users');
 Request.send();
 Request.onload = () => {
     if (Request.status != 200) {
@@ -123,7 +123,6 @@ saveInJson = () => {
             "phone": phone.value,
             "email": email.value,
             "height": height.value
-
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
