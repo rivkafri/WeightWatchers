@@ -23,6 +23,7 @@
     "fs-promise": "^2.0.3",
     "http-server": "^14.1.1",
     "json-server": "^0.17.0",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "uuid": "^8.3.2"
   }
 }
