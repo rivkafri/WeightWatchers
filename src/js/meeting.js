@@ -39,42 +39,56 @@ fetchGet();
 
 async function func(id) {
     console.log('func ' + id);
-    await getById(id);
+
+    obj={};
     date = document.ElementById('date');
+
     weight = document.getElementById('weight');
     comment = document.getElementById('comment');
     visit = document.getElementById('visit');
     obj = { date: date.value, weight: weight.value, comments: comment.value, visit: visit.checked };
     console.log(obj);
-    arrMeetings.push(obj);
-    console.log(arrMeetings);
+    debugger;
+    // arrMeetings.push(obj);
+    // console.log(arrMeetings);
     date = '';
     weight = '';
     comment = '';
     visit = '';
-    obj = {};
-    saveInJson(id);
+    saveInJson(id,obj);
 }
 
-async function getById(id) {
-    let response = await fetch(`http://localhost:3000/users/${id}`);
-    let user = await response.json();
-    arrMeetings = user.weight.meetings;
-    console.log(arrMeetings);
-}
+// async function getById(id) {
+//     let response = await fetch(`http://localhost:8000/users/${id}`);
+//     let user = await response.json();
+//     arrMeetings = user.weight.meetings;
+//     console.log(arrMeetings);
+// }
 
-saveInJson = (id) => {
-    console.log(arrMeetings);
-    fetch(`http://localhost:3000/users/${id}`, {
-        method: `PATCH`,
-        body: JSON.stringify({
-            "weight": { meetings: arrMeetings }
-        }),
+// saveInJson = (id) => {
+//     console.log(arrMeetings);
+//     fetch(`http://localhost:8000/meeting/${id}`, {
+//         method: `PATCH`,
+//         body: JSON.stringify({
+//             "weight": { meetings: arrMeetings }
+//         }),
+//         headers: {
+//             "Content-type": "application/json; charset=UTF-8"
+//         }
+//     }).then(response => console.log(response));
+//     arrMeetings = [];
+// }
+
+saveInJson = (id,obj) => {
+    fetch(`http://localhost:8000/meeting/${id}`, {
+        method: `PUT`,
+        body: JSON.stringify(
+            obj
+        ),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     }).then(response => console.log(response));
-    arrMeetings = [];
 }
 
 Back.onclick = (e) => {

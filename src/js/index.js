@@ -84,7 +84,7 @@ const printUser = (user) => {
 }
 const deleteUser = (id) => {
     console.log(id);
-    fetch(`http://localhost:3000/users/${id}`, { method: 'DELETE' })
+    fetch(`http://localhost:8000/users/${id}`, { method: 'DELETE' })
         .then(() => console.log('Delete successful'));
 }
 
@@ -234,7 +234,7 @@ form.onsubmit = (e) => {
         weight: { start: data.weight, meetings: [] }, diary: []
     };
     console.log(obj);
-    fetch(`http://localhost:3000/users/`, {
+    fetch(`http://localhost:8000/users/`, {
         method: `POST`,
         body: JSON.stringify(obj),
         headers: {

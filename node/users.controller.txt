@@ -1,0 +1,91 @@
+const express = require('express');
+const fs = require('fs/promises');
+const router = express.Router();
+const { getUserById, getUsers, addUser, deleteUser, updateUser } = require('../services/users.service');
+
+// POST /user
+// GET /users
+// GET /user/:id
+// DELETE /user/:id
+// PUT /user/:id
+// GET /users/search
+
+router.post('/', async (req, res, next) => {
+    const newUser = req.body;
+    try {
+        await addUser(newUser.firstName, newUser.lastName, newUser.city, newUser.street, newUser.number, newUser.phone, newUser.email, newUser.height, newUser.weight);
+    }
+    catch (error) {
+        next(error);
+    }
+    res.send();
+});
+
+router.put('/:id', async (req, res, next) => {
+    const id = req.params.id;
+    console.log(id);
+    const updates = req.body;
+    console.log(updates);
+    try {
+        await updateUser(id, updates);
+    }
+    catch (error) {
+        next(error);
+    }
+    res.send();
+});
+
+router.delete('/:id', async (req, res, next) => {
+    const id = req.params.id;
+    console.log(id);
+    try {
+        await deleteUser(id);
+    }
+    catch (error) {
+        next(error);
+    }
+    res.send();
+});
+
+router.get('/:id', async (req, res, next) => {
+    const id = req.params.id;
+    console.log(id);
+    let user;
+    try {
+        user = await getUserById(id);
+        console.log(user);
+    }
+    catch (error) {
+        next(error);
+    }
+    res.send(user);
+});
+
+router.get('/', async (req, res, next) => {
+    let users;
+    try {
+        users = await getUsers();
+    }
+    catch (error) {
+        next(error);
+    }
+    res.send(users);
+});
+
+module.exports = router;
+
+
+// // GET /users
+// router.get('/', (req, res) => {
+//     fs.readFile('../users.json')
+//         .then(function (result) {
+//             console.log(JSON.parse(result).users);
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         })
+//     res.send(result);
+// });
+
+
+
