@@ -39,9 +39,10 @@ fetchGet();
 
 async function func(id) {
     console.log('func ' + id);
-    //await getById(id);
+
     obj={};
-    date = document.getElementById('date');
+    date = document.ElementById('date');
+
     weight = document.getElementById('weight');
     comment = document.getElementById('comment');
     visit = document.getElementById('visit');
@@ -92,5 +93,5 @@ saveInJson = (id,obj) => {
 
 Back.onclick = (e) => {
     e.preventDefault();
-    window.location.href = './index.html';
+    window.location.href = '../html/index.html';
 }

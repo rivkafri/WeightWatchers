@@ -10,19 +10,19 @@ showDetails = (p) => {
     container.innerHTML = "";
     let protein = "";
     let sodium = "";
-    let potassium="";
-    let carbohydrates=""
-    if (hebrew){
+    let potassium = "";
+    let carbohydrates = ""
+    if (hebrew) {
         protein = p.protein;
-        sodium=p.sodium;
-        potassium=p.potassium;
-        carbohydrates=p.carbohydrates;
+        sodium = p.sodium;
+        potassium = p.potassium;
+        carbohydrates = p.carbohydrates;
     }
-    else{
+    else {
         protein = p.protein_g;
-        sodium=p.sodium_mg;
-        potassium=p.potassium_mg;
-        carbohydrates=p.carbohydrates_total_g;
+        sodium = p.sodium_mg;
+        potassium = p.potassium_mg;
+        carbohydrates = p.carbohydrates_total_g;
     }
     let table = "";
     table += `
@@ -85,9 +85,14 @@ SearchFoods.onsubmit = (e) => {
                 .then(response => {
                     console.log(response);
                     array = [];
-                    // array = response.result.records;
-                    array.push(response.result.records[0]);
-                    creatTable();
+                    if (response.result.records.length === 0)
+                        alert("enter again the food not exist!");
+                    else {
+                        // array = response.result.records;
+                        array.push(response.result.records[0]);
+                        creatTable();
+                    }
+
                 }
                 ).catch(err => console.error(err));
         }
@@ -98,12 +103,17 @@ SearchFoods.onsubmit = (e) => {
                 .then(response => {
                     console.log(response.items);
                     array = [];
-                    array = response.items;
-                    creatTable();
+                    if (response.items.length === 0)
+                        alert("enter again the food not exist!");
+                    else {
+                        array = response.items;
+                        creatTable();
+                    }
                 }
                 ).catch(err => console.error(err));
         }
-    } else {
+    }
+    else {
         array = [];
         container.innerHTML = "";
         alert("enter again!");

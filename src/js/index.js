@@ -3,7 +3,7 @@ setUsersList = () => {
     // xhr to bring the data from json file.
     let users;
     const Request = new XMLHttpRequest();
-    Request.open('GET', 'users.json');
+    Request.open('GET', '../../users.json');
     Request.send();
     Request.onload = () => {
         if (Request.status != 200) {
@@ -75,7 +75,7 @@ const printUser = (user) => {
     let table = '';
     table += `
         <tr>
-            <th><a href="../user.html?id=${user.id}">${user.firstName + ' ' + user.lastName}</a></th>
+            <th><a href="../html/user.html?id=${user.id}">${user.firstName + ' ' + user.lastName}</a></th>
             <th style="color:${color}" >${bmi}</th>
             <th><button type="button" onclick="deleteUser(${user.id})">delete</button><th>
         </tr>`
@@ -194,11 +194,12 @@ search.onclick = (e) => {
     sendToPrint(currentUsers);
     if (inputToSearch.value != "")
         sendToPrint(searchFunc(list, inputToSearch.value));
+    funcReset();
 }
 //reset
 const reset = document.querySelector('#reset');
-reset.onclick = (e) => {
-    e.preventDefault();
+const funcReset = () => {
+    console.log('funcReset');
     byWeight.checked = false;
     byProcess.checked = false;
     byBMI.checked = false;
@@ -206,8 +207,13 @@ reset.onclick = (e) => {
     weightInputs.innerHTML = "";
     bmiInputs.innerHTML = "";
     cityInput.innerHTML = "";
+}
+reset.onclick = (e) => {
+    e.preventDefault();
+    funcReset();
     sendToPrint(list);
 }
+
 const newMeeting = document.querySelector('#newMeeting');
 newMeeting.onclick = (e) => {
     e.preventDefault();
