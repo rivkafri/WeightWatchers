@@ -2,13 +2,18 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
-const usersControllers=require('./controllers/users.controller');
+const usersController = require('./controllers/users.controller');
+const diaryController = require('./controllers/diary.controller');
+const accountController = require('./controllers/account.controller');
+
 const port = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/users', usersControllers);
+app.use('/users', usersController);
+app.use('/diary', diaryController);
+app.use('/account', accountController);
 app.use(express.static('public'));
 
 app.listen(port, function () {
