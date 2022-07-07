@@ -18,20 +18,14 @@
             "email": "tl@gmail.com",
             "height": "1.6",
             "weight": {
+                "start": 100,
                 "meetings": [
                     {
-                        "date": "01-02-2022",
-                        "weight": 71
-                    },
-                    {
-                        "date": "01-03-2022",
-                        "weight": 79
-                    },
-                    {
-                        "date": "2022-07-03",
-                        "weight": "50",
-                        "comments": "good! you work perfect!",
-                        "visit": true
+                        "date": "2022-07-07",
+                        "weight": "76",
+                        "comments": "perfect!",
+                        "visit": true,
+                        "idmeeting": "83ee3dfb-8f12-4d31-b0e2-498668b86fd0"
                     }
                 ]
             },
@@ -65,16 +59,7 @@
             "height": "1.7",
             "weight": {
                 "start": 100,
-                "meetings": [
-                    {
-                        "date": "01-01-2022",
-                        "weight": 79
-                    },
-                    {
-                        "date": "01-02-2022",
-                        "weight": 70
-                    }
-                ]
+                "meetings": []
             },
             "diary": [
                 {
@@ -98,7 +83,15 @@
             "height": "1.70",
             "weight": {
                 "start": "70",
-                "meetings": []
+                "meetings": [
+                    {
+                        "date": "2022-07-06",
+                        "weight": "42",
+                        "comments": "good!",
+                        "visit": true,
+                        "idmeeting": "0f1961e5-ef04-4e55-9d1f-a356ce869bad"
+                    }
+                ]
             },
             "diary": [
                 {

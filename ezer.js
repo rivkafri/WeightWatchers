@@ -169,3 +169,57 @@ const printUsers = (arr) => {
         userList.append(div);
     });
 }
+
+// {
+//     "date": "01-01-2022",
+//     "weight": 79
+// },
+// {
+//     "date": "01-02-2022",
+//     "weight": 70
+// },
+// {
+//     "date": "2022-07-06",
+//     "weight": "150",
+//     "comments": "good! you work perfect!",
+//     "visit": true
+// },
+// {
+//     "date": "2022-07-06",
+//     "weight": "",
+//     "comments": "",
+//     "visit": false
+// },
+// {
+//     "date": "2022-07-06",
+//     "weight": "",
+//     "comments": "",
+//     "visit": false
+// },
+// {
+//     "date": "2022-07-06",
+//     "weight": "150",
+//     "comments": "good! you work perfect!",
+//     "visit": true
+// }
+
+// {
+//     "date": "01-02-2022",
+//     "weight": 71
+// },
+// {
+//     "date": "01-03-2022",
+//     "weight": 79
+// },
+// {
+//     "date": "2022-07-03",
+//     "weight": "50",
+//     "comments": "good! you work perfect!",
+//     "visit": true
+// },
+// {
+//     "date": "2022-07-06",
+//     "weight": "78",
+//     "comments": "v",
+//     "visit": true
+// }
