@@ -47,13 +47,13 @@ const printUser = (user) => {
 // xhr to bring the data from json file.
 let users;
 const Request = new XMLHttpRequest();
-Request.open('GET', 'http://localhost:8000/users');
+Request.open('GET', 'https://weightwatchers.herokuapp.com/users');
 Request.send();
 Request.onload = () => {
     if (Request.status != 200) {
         alert(`Error ${Request.status}: ${Request.statusText}`);
     } else {
-        users = JSON.parse(Request.responseText).users;
+        users = JSON.parse(Request.responseText);
         users.forEach(user => {
             if (user.id === userURL) {
                 console.log(user);
@@ -114,7 +114,7 @@ form.onsubmit = (e) => {
 }
 
 saveInJson = () => {
-    fetch(`http://localhost:3000/users/${userURL}`, {
+    fetch(`https://weightwatchers.herokuapp.com/users/${userURL}`, {
         method: `PATCH`,
         body: JSON.stringify({
             "firstName": fName.value,
