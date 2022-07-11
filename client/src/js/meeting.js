@@ -24,12 +24,12 @@ creatTableMeeting = (user) => {
 }
 
 const fetchGet = () => {
-    fetch('http://localhost:8000/users')
+    fetch('https://weightwatchers.herokuapp.com/users')
         .then(response => {
             return response.json();
         }).then(data => {
             console.log(data.users);
-            data.users.forEach(user => {
+            data.forEach(user => {
                 creatTableMeeting(user);
             });
         })
@@ -40,7 +40,7 @@ fetchGet();
 async function func(id) {
     console.log('func ' + id);
 
-    obj={};
+    obj = {};
     date = document.ElementById('date');
 
     weight = document.getElementById('weight');
@@ -55,7 +55,7 @@ async function func(id) {
     weight = '';
     comment = '';
     visit = '';
-    saveInJson(id,obj);
+    saveInJson(id, obj);
 }
 
 // async function getById(id) {
@@ -79,8 +79,8 @@ async function func(id) {
 //     arrMeetings = [];
 // }
 
-saveInJson = (id,obj) => {
-    fetch(`http://localhost:8000/meeting/${id}`, {
+saveInJson = (id, obj) => {
+    fetch(`https://weightwatchers.herokuapp.com/meeting/${id}`, {
         method: `PUT`,
         body: JSON.stringify(
             obj
