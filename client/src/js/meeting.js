@@ -41,7 +41,7 @@ async function func(id) {
     console.log('func ' + id);
 
     obj = {};
-    date = document.ElementById('date');
+    date = document.getElementById('date');
 
     weight = document.getElementById('weight');
     comment = document.getElementById('comment');
@@ -81,7 +81,7 @@ async function func(id) {
 
 saveInJson = (id, obj) => {
     fetch(`https://weightwatchers.herokuapp.com/meeting/${id}`, {
-        method: `PUT`,
+        method: `POST`,
         body: JSON.stringify(
             obj
         ),

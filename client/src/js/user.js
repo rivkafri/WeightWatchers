@@ -115,7 +115,7 @@ form.onsubmit = (e) => {
 
 saveInJson = () => {
     fetch(`https://weightwatchers.herokuapp.com/users/${userURL}`, {
-        method: `PATCH`,
+        method: `PUT`,
         body: JSON.stringify({
             "firstName": fName.value,
             "lastName": lName.value,
