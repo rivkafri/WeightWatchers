@@ -7,10 +7,10 @@ let arrDiary = [];
 showDairy = (u) => {
     console.log(u);
     container.innerHTML = "";
-    arrDiary = u.diary;
+    arrDiary = u;
     console.log(arrDiary);
-    if (arrDiary.length > 0) {
-        u.diary.forEach(day => {
+    if (u.length > 0) {
+        u.forEach(day => {
             let table = '';
             table += `
                 <tr>
@@ -25,16 +25,12 @@ showDairy = (u) => {
 }
 
 const fetchGet = () => {
-    fetch('http://localhost:3000/users')
+    fetch(`https://weightwatchers.herokuapp.com/diary/${userURL}`)
         .then(response => {
             return response.json();
         }).then(data => {
             console.log(data);
-            data.forEach(user => {
-                if (user.id === userURL) {
-                    showDairy(user);
-                }
-            });
+            showDairy(data);
         })
 };
 fetchGet();
@@ -53,18 +49,15 @@ let dateBtn = "";
 
 saveInJson = (obj) => {
     console.log(obj);
-    arrDiary.push(obj);
-    console.log(arrDiary);
-    fetch(`http://localhost:3000/users/${userURL}`, {
-        method: `PATCH`,
+    fetch(`https://weightwatchers.herokuapp.com/diary/${userURL}`, {
+        method: `POST`,
         body: JSON.stringify({
-            "diary": arrDiary,
+            obj
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     }).then(response => console.log(response));
-    arrDairy = [];
 }
 
 summaryDay.onclick = (e) => {
@@ -89,7 +82,7 @@ summaryDay.onclick = (e) => {
     save.addEventListener("click", () => {
         Meals.innerHTML = "";
         obj = { date: dateBtn.value, summery: diary }
-        saveInJson(obj);
+        saveInJson({ date: dateBtn.value, summery: diary });
         diary = [];
     });
     Meals.append(addMeal, dateBtn, allFoods);

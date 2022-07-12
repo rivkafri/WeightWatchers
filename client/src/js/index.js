@@ -3,13 +3,13 @@ setUsersList = () => {
     // xhr to bring the data from json file.
     let users;
     const Request = new XMLHttpRequest();
-    Request.open('GET', '../../users.json');
+    Request.open('GET', 'https://weightwatchers.herokuapp.com/users');
     Request.send();
     Request.onload = () => {
         if (Request.status != 200) {
             alert(`Error ${Request.status}: ${Request.statusText}`);
         } else {
-            users = JSON.parse(Request.responseText).users;
+            users = JSON.parse(Request.responseText);
             console.log(users);
             users.forEach(u => {
                 usersList.push(u);
@@ -69,6 +69,7 @@ const printUser = (user) => {
     console.log(user);
     //check the BMI
     let bmi = user.weight.start / (user.height ** 2);
+    console.log(user.firstName,bmi);
     let color = "green";
     if (bmi > 25)
         color = "red";
@@ -84,11 +85,12 @@ const printUser = (user) => {
 }
 const deleteUser = (id) => {
     console.log(id);
-    fetch(`http://localhost:8000/users/${id}`, { method: 'DELETE' })
+    fetch(`https://weightwatchers.herokuapp.com/users/${id}`, { method: 'DELETE' })
         .then(() => console.log('Delete successful'));
 }
 
 //send to print
+
 const sendToPrint = (arr) => {
     console.log("sendToPrint");
     container.innerHTML = "";
@@ -234,14 +236,13 @@ form.onsubmit = (e) => {
         weight: { start: data.weight, meetings: [] }, diary: []
     };
     console.log(obj);
-    fetch(`http://localhost:8000/users/`, {
+    fetch(`https://weightwatchers.herokuapp.com/users`, {
         method: `POST`,
         body: JSON.stringify(obj),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     })
-        .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
         })
