@@ -19,6 +19,7 @@
   "homepage": "https://github.com/chanakamin/bootcamp-template#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "eslint": "^8.17.0",
     "fs-promise": "^2.0.3",
     "http-server": "^14.1.1",

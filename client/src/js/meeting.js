@@ -79,11 +79,11 @@ async function func(id) {
 //     arrMeetings = [];
 // }
 
-saveInJson = (id, obj) => {
+saveInJson = (id, meeting) => {
     fetch(`https://weightwatchers.herokuapp.com/meeting/${id}`, {
         method: `POST`,
         body: JSON.stringify(
-            obj
+            meeting
         ),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
