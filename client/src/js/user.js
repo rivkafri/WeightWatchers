@@ -1,19 +1,20 @@
 const searchURL = new URLSearchParams(location.search);
-const userURL = parseInt(searchURL.get('id'));
+const userURL = searchURL.get('id');
+console.log(userURL);
 const form = document.querySelector('#form');
 let container = '';
-//container.id = 'container';
 let containerMeetings = '';
 let table = '';
-//table.classList.add('table');
 
 const printUser = (user) => {
     console.log(user);
     let CurrentBmi = '';
-    if (user.weight.meetings.length === 0) {
+    let meetingsExist = false;
+    if (user.weight.meetings !== null) {
         CurrentBmi = user.weight.start / (user.height ** 2);
     }
     else {
+        meetingsExist = true;
         CurrentBmi = user.weight.meetings[user.weight.meetings.length - 1].weight / (user.height ** 2);
     }
     table += `
@@ -31,23 +32,24 @@ const printUser = (user) => {
        `
     container = document.querySelector('.userContainer');
     container.innerHTML += table;
-
-    user.weight.meetings.forEach(m => {
-        let table = '';
-        table += `
+    if (meetingsExist) {
+        user.weight.meetings.forEach(m => {
+            let table = '';
+            table += `
                 <tr>
                     <th>${m.date}</a></th>
                     <th>${m.weight}</th>
                 </tr>`
-        containerMeetings = document.querySelector('.userTable');
-        containerMeetings.innerHTML += table;
-    })
+            containerMeetings = document.querySelector('.userTable');
+            containerMeetings.innerHTML += table;
+        })
+    }
 }
 
 // xhr to bring the data from json file.
 let users;
 const Request = new XMLHttpRequest();
-Request.open('GET', 'https://weightwatchers.herokuapp.com/users');
+Request.open('GET', 'http://localhost:8000/users');
 Request.send();
 Request.onload = () => {
     if (Request.status != 200) {
@@ -55,29 +57,20 @@ Request.onload = () => {
     } else {
         users = JSON.parse(Request.responseText);
         users.forEach(user => {
-            if (user.id === userURL) {
+            console.log(user._id);
+            if (user._id === userURL) {
                 console.log(user);
                 printUser(user);
             }
         })
     }
 }
+
 let arrDetails = [];
 const Edit = document.querySelector('#Edit');
 Edit.onclick = (e) => {
     e.preventDefault();
     console.log('Edit');
-    //for  
-    // // let arr=['fName'];
-    // const details = table;
-    // for (let i = 0; i <8; i++) {
-    //     // let child=document.getElementById(arr[i]);
-    //     debugger;
-    //     console.log(details)
-    // arrDetails[i] = details[i];
-    // details[i].removeAttribute('readonly');
-    // details[i].style.color = 'gray'
-
     const fName = document.getElementById('fName');
     fName.removeAttribute('readonly');
     fName.style.color = 'gray'
@@ -114,7 +107,7 @@ form.onsubmit = (e) => {
 }
 
 saveInJson = () => {
-    fetch(`https://weightwatchers.herokuapp.com/users/${userURL}`, {
+    fetch(`http://localhost:8000/users/${userURL}`, {
         method: `PUT`,
         body: JSON.stringify({
             "firstName": fName.value,

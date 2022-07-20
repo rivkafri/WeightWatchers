@@ -6,7 +6,7 @@ login.onclick = (e) => {
     e.preventDefault();
     const Request = new XMLHttpRequest();
     let users;
-    Request.open('GET', 'https://weightwatchers.herokuapp.com/account');
+    Request.open('GET', 'http://localhost:8000/account');
     Request.send();
     Request.onload = () => {
         if (Request.status != 200) {

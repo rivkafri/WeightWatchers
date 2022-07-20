@@ -1,16 +1,16 @@
 const searchURL = new URLSearchParams(location.search);
-const userURL = parseInt(searchURL.get('id'));
+const userURL = searchURL.get('id');
 console.log(userURL);
 let container = "";
 let arrDiary = [];
 
-showDairy = (u) => {
-    console.log(u);
+showDairy = (ARRDiary) => {
+    console.log(ARRDiary);
     container.innerHTML = "";
-    arrDiary = u;
+    arrDiary = ARRDiary;
     console.log(arrDiary);
-    if (u.length > 0) {
-        u.forEach(day => {
+    if (ARRDiary.length > 0) {
+        ARRDiary.forEach(day => {
             let table = '';
             table += `
                 <tr>
@@ -25,7 +25,7 @@ showDairy = (u) => {
 }
 
 const fetchGet = () => {
-    fetch(`https://weightwatchers.herokuapp.com/diary/${userURL}`)
+    fetch(`http://localhost:8000/diary/${userURL}`)
         .then(response => {
             return response.json();
         }).then(data => {
@@ -47,13 +47,12 @@ let save = "";
 let content = "";
 let dateBtn = "";
 
-saveInJson = (obj) => {
-    console.log(obj);
-    fetch(`https://weightwatchers.herokuapp.com/diary/${userURL}`, {
+saveInJson = (dailyDiary) => {
+    console.log(dailyDiary);
+    fetch(`http://localhost:8000/diary/${userURL}`, {
         method: `POST`,
-        body: JSON.stringify({
-            obj
-        }),
+        body: JSON.stringify(
+            dailyDiary),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
